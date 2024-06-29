@@ -1,0 +1,76 @@
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="section-heading text-center">
+          <h2>{{title}}</h2>
+        </div>
+        <div class="mb-3">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterGallery">
+            Add
+        </button>
+    </div>
+
+    <!-- Modal Item -->
+    <div class="modal fade" id="exampleModalCenterGallery" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah Foto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="tab-content" id="myTabContentGallery">
+                    <div class="tab-pane fade show active" id="homeGallery" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="modal-body">
+                            <form method="post" action="/create-gallery" enctype="multipart/form-data">
+                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                <div class="form-group">
+                                    <label for="title">Judul Id</label>
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="titleen">Judul en</label>
+                                    <input type="text" class="form-control" id="titleen" name="titleen">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descriptionid">Deskripsi Id</label>
+                                    <textarea class="form-control" id="descriptionid" name="descriptionid" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="descriptionen">Deskripsi En</label>
+                                    <textarea class="form-control" id="descriptionen" name="descriptionen" rows="3"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="image" class="form-label">Masukan gambar</label>
+                                    <input class="form-control" type="file" id="image" name="image" accept="image/*">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                            </form>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+      </div>
+        <div class="row">
+          <!-- Item 1 -->
+          {{#each gallery}}
+          <div class="col-md-4 mb-3">
+            <div class="gallery-item">
+              <img src="./assets/images/{{this.dataValues.image}}" alt="" class="gallery-image">
+              <div class="overlay"></div>
+              <div class="text">
+                <form action="/delete-gallery/{{this.dataValues.gid}}" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+    </div>
+</div>

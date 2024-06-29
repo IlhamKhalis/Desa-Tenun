@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Desa Tenun</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/desa-tenun.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Header Area -->
+    <header class="header-area background-header">
+      <div class="main-nav">
+        <div class="logo">
+          <a class="navbar-brand" href="home-en">
+            <img src="assets/images/logo/logo-1.png" width="50" height="50" alt="">
+          </a> 
+        </div>   
+        <ul class="nav icons">
+          <li><a href="info-en" class="nav-link">INFORMATION</a></li>
+          <li><a href="gallery-en" class="nav-link">GALLERY</a></li>
+          <li><a href="shop-en" class="nav-link">COLLECTION</a></li>
+          <li><a href="faqs-en" class="nav-link">FAQ</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="assets/images/en.png" alt="English" style="width: 20px; height: auto;"> EN
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/" style="color: #000;"><img src="assets/images/id.png" alt="Indonesian" style="width: 20px; height: auto;"> ID</a>
+              <a class="dropdown-item" href="home-en" style="color: #000;"><img src="assets/images/en.png" alt="English" style="width: 20px; height: auto;"> EN</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+    <script>
+      window.addEventListener('scroll', function() {
+        var header = document.querySelector('.background-header');
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+    </script>
+  <!-- End Header Area -->
+
+  <!-- Content Area -->
+  {{{body}}}
+  <!-- End Content Area -->
+
+  <div id='chat-box'>
+    <div id='chat-top'>Need HELP? <span id='chat-top-right'><svg id='close-box' xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z" fill='#fff'/></svg></span><div class='clear'></div></div>
+    <div id='chat-msg'>
+      <p>We Are expert in Web Design and Technical SEO</p>
+      <div id='chat-form'>
+        <div class='chat-in'>
+          <input type='text' id='whats-in' Placeholder='Send Your Message...'/>
+        </div>
+        <div id='send-btn'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 48 48"><path d="M4.02 42L46 24 4.02 6 4 20l30 4-30 4z" fill='rgb(18, 140, 126)'/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='whats-chat'>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1" width="35" height="35" viewBox="0 0 90 90"><path d="M90 44a44 44 0 0 1-66 38L0 90l8-24A44 44 0 0 1 46 0c24 0 44 20 44 44zM46 7C25 7 9 24 9 44c0 8 2 15 7 21l-5 14 14-4a37 37 0 0 0 58-31C83 24 66 7 46 7zm22 47l-2-1-7-4-3 1-3 4h-3c-1 0-4-1-8-5-3-3-6-6-6-8v-2l2-2 1-1v-2l-4-8c0-2-1-2-2-2h-2l-3 1c-1 1-4 4-4 9s4 11 5 11c0 1 7 12 18 16 11 5 11 3 13 3s7-2 7-5l1-5z" fill="#FFF"/></svg>
+  </div>
+  <style>
+    body { width: 100%; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    #whats-chat {
+      position: fixed;
+      right: 3%;
+      bottom: 10%;
+      height: auto;
+      width: auto;
+      background: #25D366;
+      padding: 12.5px;
+      border-radius: 50px;
+      z-index: 1000;
+    }
+    #whats-chat:hover {
+      cursor: pointer;
+      box-shadow: 2px 2px 15px #ccc;
+      bottom: 11%;
+    }
+    #chat-box {
+      position: fixed;
+      right: -500px;
+      bottom: 18%;
+      width: 250px;
+      height: 200px;
+      transition: all .5s;
+      z-index: 1000;
+    }
+    #chat-top {
+      width: 100%;
+      line-height: 2;
+      background: rgb(18, 140, 126);
+      color: white;
+      text-align: center;
+      border-radius: 5px 5px 0 0;
+      padding: 0 10px;
+    }
+    #chat-msg {
+      background: #ece5dd;
+      padding: 10px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 0 25px -10px #999;
+    }
+    #chat-msg p {
+      font-size: 14px;
+      padding: 5px;
+      background: white;
+      border-radius: 0 50px 50px 50px;
+      margin-bottom: 10px;
+    }
+    #chat-form {
+      display: flex;
+    }
+    .chat-in {
+      width: 80%;
+    }
+    #chat-form input {
+      border-radius: 5px 0 5px 5px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      padding: 5px;
+      line-height: 2;
+    }
+    #send-btn {
+      width: 20%;
+      padding: 0 5px;
+    }
+    #chat-top-right {
+      float: right;
+      padding: 5px 0;
+    }
+    #chat-box:after {
+      content: '';
+      position: absolute;
+      top: 58%;
+      left: 90%;
+      width: 0;
+      height: 0;
+      border-top: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+      border-right: 25px solid #ece5dd;
+    }
+    .right {
+      float: right;
+    }
+    .clear {
+      clear: both;
+    }
+  </style>
+  <script>
+    document.getElementById('whats-chat').addEventListener("mouseover", showchatbox);
+    document.getElementById('chat-top-right').addEventListener("click", closechatbox);
+    document.getElementById('send-btn').addEventListener("click", sendmsg);
+    window.addEventListener("load", showchatboxtime);
+
+    function showchatbox() {
+      document.getElementById('chat-box').style.right = '8%';
+    }
+
+    function closechatbox() {
+      document.getElementById('chat-box').style.right = '-500px';
+    }
+
+    function launchbox() {
+      document.getElementById('chat-box').style.right = '8%';
+    }
+
+    function sendmsg() {
+      var msg = document.getElementById('whats-in').value;
+      var relmsg = encodeURIComponent(msg);  // Menggunakan encodeURIComponent untuk mengganti spasi dan karakter khusus lainnya
+      window.open('https://wa.me/6282244211216?text=I%20am%20interested%20in%20your%20car%20for%20sale' + relmsg, '_blank');
+    }
+
+  </script>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>
+            <img src="assets/images/logo/logo-1.png" alt="">
+            <img src="assets/images/logo/logo-2.png" alt="">
+            <img src="assets/images/logo/logo-3.png" alt="">
+            <img src="assets/images/logo/logo-4.png" alt="">
+          </p><br>
+          <!-- WhatsApp -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-white m-1"
+            href="https://wa.me/6281515530666"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <!-- Instagram -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-white m-1"
+            href="https://www.instagram.com/mitrapokdarwistenun_ikat"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <!-- Facebook -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-white m-1"
+            href="https://www.facebook.com/profile.php?id=100082610674129"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <!-- Email -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-white m-1"
+            href="https://mail.google.com/mail/u/0/?view=cm&tf=1&fs=1&to=mitrapokdarwis.tenunikat@gmail.com"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fa fa-envelope"></i
+          ></a>
+          <!-- Youtube -->
+          <a
+            data-mdb-ripple-init
+            class="btn btn-link btn-floating btn-lg text-white m-1"
+            href="https://www.youtube.com/@kampungwisatatenunikatband941"
+            role="button"
+            data-mdb-ripple-color="dark"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <p>
+             All rights reserved. Copyright © 2024 
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+  <!-- Scripts -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/wow.js"></script>
+  <script src="assets/js/tabs.js"></script>
+  <script src="assets/js/popup.js"></script>
+  <script src="assets/js/custom.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script>
+    function bannerSwitcher() {
+      next = $('.sec-1-input').filter(':checked').next('.sec-1-input');
+      if (next.length) next.prop('checked', true);
+      else $('.sec-1-input').first().prop('checked', true);
+    }
+
+    var bannerTimer = setInterval(bannerSwitcher, 5000);
+
+    $('nav .controls label').click(function() {
+      clearInterval(bannerTimer);
+      bannerTimer = setInterval(bannerSwitcher, 5000)
+    });
+  </script>
+
+  <script>
+    // Function to handle page number click
+    function loadPage(pageNum) {
+      // Fetch content for the selected page using AJAX
+      fetch('/shopid?page=' + pageNum)
+          .then(response => response.text())
+          .then(data => {
+              // Replace the content of the product section with the fetched data
+              document.querySelector('.amazing-deals .container .row').innerHTML = data;
+              // Update active class for page numbers
+              updateActivePage(pageNum);
+          })
+          .catch(error => console.error('Error:', error));
+    }
+
+    // Function to update active page number
+    function updateActivePage(pageNum) {
+      const pageLinks = document.querySelectorAll(".page-numbers a");
+      pageLinks.forEach(function(link) {
+        link.parentElement.classList.remove("active");
+        if (link.getAttribute('href') === '/shopid?page=' + pageNum) {
+          link.parentElement.classList.add("active");
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      // Mengambil semua tautan page number
+      const pageLinks = document.querySelectorAll(".page-numbers a");
+
+      // Iterasi melalui setiap tautan
+      pageLinks.forEach(function(link) {
+        // Tambahkan event listener untuk setiap tautan
+        link.addEventListener("click", function(event) {
+          event.preventDefault(); // Menghentikan perilaku default dari tautan
+          const pageNum = this.getAttribute("data-page"); // Dapatkan nomor halaman dari atribut data-page
+          loadPage(pageNum); // Panggil fungsi untuk memuat konten halaman baru
+          updateActivePage(pageNum); // Panggil fungsi untuk memperbarui kelas active pada tautan
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
