@@ -10,6 +10,7 @@ const session = require('express-session');
 const expressHbs = require('express-handlebars');
 const SequelizeStore = require("connect-session-sequelize")(session.Store); // initalize sequelize with session store
 const editor = require ('./app/controllers/AuthController')
+const logger = require('./logger');
 
 const app = express();
 const csrfProtection = csrf();
@@ -31,9 +32,9 @@ app.post('/create-shop', upload.single('image'), editor.createShop);
 app.post('/create-gallery', upload.single('image'), editor.createGallery)
 app.post('/update-item', upload.single('image'), editor.updateShop);
 app.post('/update-event',upload.single('image'), editor.updateEvent)
-app.post('/delete-item:id', editor.deleteShop);
-app.post('/delete-event:id', editor.deleteEvent);
-app.post('/delete-gallery/:id', editor.deleteGallery);
+app.post('/delete-item/:id', upload.single('image'),editor.deleteShop);
+app.post('/delete-event/:id', upload.single('image'),editor.deleteEvent);
+app.post('/delete-gallery/:id', upload.single('image'),editor.deleteGallery);
 
 
 //Loading Routes	
@@ -79,13 +80,25 @@ app.set('views', 'views');
 
 app.use(webRoutes);
 app.use(errorController.pageNotFound);
+
+app.use((req, res, next) => {
+    logger.info(`Request: ${req.method} ${req.url}`);
+    next();
+});
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+    logger.info('Hello World endpoint was hit');
+});
+
 sequelize
 	//.sync({force : true})
 	.sync()
 	.then(() => {
-		app.listen(process.env.PORT);
-		//pending set timezone
-		console.log("App listening on port " + process.env.PORT);
+		const PORT = process.env.PORT || 3000;
+		app.listen(PORT, () => {
+			logger.info(`Server is running on port ${PORT}`);
+		});
 	})
 	.catch(err => {
 		console.log(err);

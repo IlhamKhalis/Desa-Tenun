@@ -106,6 +106,11 @@ p {
   line-height: 30px;
   color: #afafaf;
 }
+pi {
+  font-size: 15px;
+  line-height: 30px;
+  color: dimgrey;
+}
 
 img {
   width: 100%;
@@ -192,6 +197,58 @@ body {
   border: 1px solid #fff;
 }
 
+
+.main-buttonn a {
+  font-size: 14px;
+  color: #fff;
+  display: inline-block;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.main-buttonn a img.tokopedia{
+  border-radius: 5px;
+  background-color: #41b549;
+  width: 50px;
+  height: 50px;
+}
+
+.main-buttonn a img.shopee{
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: #EE4D2D;
+  width: 50px;
+  height: 50px;
+}
+
+.main-buttonn a img.whatsapp{
+  border-radius: 5px;
+  padding: 10px 10px;
+  background-color: #075e54;
+  width: 50px;
+  height: 50px;
+}
+
+.main-buttonn a img.tokopedia:hover{
+  background-color: black;
+  border: 1px solid black;
+}
+
+.main-buttonn a img.shopee:hover{
+  background-color: black;
+  border: 1px solid black;
+}
+
+.main-buttonn a img.whatsapp:hover{
+  background-color: black;
+  border: 1px solid black;
+}
+
+
 section {
   margin-top: 120px;
 }
@@ -205,6 +262,24 @@ section {
 }
 
 .section-heading h2 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+  line-height: 36px;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #2a2a2a;
+}
+
+.section-headingg {
+  position: relative;
+  z-index: 2;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: left;
+}
+
+.section-headingg h2 {
   margin-top: 0px;
   margin-bottom: 20px;
   line-height: 36px;
@@ -319,8 +394,34 @@ Header Style
 --------------------------------------------- 
 */
 
+/* ---------------------------------------------
+Header Style
+--------------------------------------------- 
+*/
+
 .background-header {
   background-color: transparent; /* Warna latar belakang header */
+  height: 120px !important; /* Sesuaikan tinggi header */
+  position: fixed!important;
+  top: 0!important;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.15)!important;
+  -webkit-transition: all .5s ease 0s;
+  -moz-transition: all .5s ease 0s;
+  -o-transition: all .5s ease 0s;
+  transition: background-color 0.5s ease;
+  display: flex;
+  flex-direction: column; /* Atur arah flex menjadi kolom */
+  align-items: center;
+  justify-content: center; /* Pusatkan konten */
+  padding: 0 20px;
+  z-index: 1000; /* Pastikan header berada di atas konten lain */
+}
+
+.background-header-1 {
+  background-color: #572f4a; /* Warna latar belakang header */
+  opacity: 1; /* Buat tidak transparan */
   height: 120px !important; /* Sesuaikan tinggi header */
   position: fixed!important;
   top: 0!important;
@@ -388,6 +489,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li a {
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   display: block;
   font-weight: 400;
   font-size: 15px;
@@ -797,6 +899,171 @@ Banner Style
   border-color: #d4762c;
   transition: 0.3s;
 }
+
+/* ---------------------------------------------
+Responsive Style
+--------------------------------------------- 
+*/
+
+@media (max-width: 1200px) {
+  .header-area .main-nav .nav li {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .header-area .main-nav:before {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .header-area {
+    top: 0;
+  }
+  .header-area .main-nav {
+    background-color: transparent;
+    border-radius: 0px;
+  }
+  .header-area .main-nav .nav {
+    height: auto;
+    flex-basis: 100%;
+  }
+  .header-area .main-nav .logo {
+    position: absolute;
+    left: 30px;
+    top: 15px;
+  }
+  .background-header .main-nav .logo {
+    top: 0px;
+  }
+  .background-header .main-nav .border-button {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .about-main-content .content p {
+    padding: 0px 5%;
+  }
+  .weekly-offers .container-fluid {
+    padding: 0px;
+  }
+  .more-about .left-image {
+    margin-right: 0px;
+    margin-bottom: 60px;
+  }
+  .search-form #search-form h4 {
+    margin-bottom: 15px;
+  }
+  .search-form #search-form select {
+    margin-bottom: 30px;
+  }
+  .amazing-deals .item .image {
+    border-top-right-radius: 23px;
+    border-bottom-left-radius: 0px;
+  }
+  .amazing-deals .item {
+    padding-right: 0px;
+  }
+  .amazing-deals .item .content {
+    padding: 30px !important;
+  }
+  .more-info .info-item {
+    margin-bottom: 30px;
+  }
+  .reservation-form #reservation-form {
+    padding: 45px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper {
+    padding-top: 120px;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h2 {
+    font-size: 15px;
+  }
+  #section-1 .content-slider .slider .banner .banner-inner-wrapper h1 {
+    font-size: 36px;
+  }
+  #section-1 .more-info {
+    padding: 30px;
+    margin-top: 30px !important;
+    border-radius: 23px;
+    bottom: 110px;
+    width: 95%;
+    left: 2.5%;
+  }
+  #section-1 .more-info i {
+    width: 36px;
+    height: 36px;
+    line-height: 34px;
+    font-size: 18px;
+    margin-right: 10px;
+    margin-top: 8px;
+  }
+  .visit-country .item .right-content .main-button a {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  .main-button a {
+    text-align: center;
+  }
+  #section-1 .more-info h4 {
+    font-size: 14px !important;
+  }
+  #section-1 .content-slider nav .controls label { 
+    width: 7% !important;
+  }
+  .visit-country .item .right-content ul li {
+    width: 30%;
+  }
+  .visit-country .item .right-content h4 {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 575px) {
+  .header-area .main-nav .nav {
+    flex-direction: column;
+  }
+  .header-area .main-nav .nav li {
+    padding: 5px 0;
+  }
+  .header-area .main-nav .icons {
+    margin-top: 20px;
+  }
+  .header-area .main-nav .icons a {
+    margin-left: 10px;
+  }
+  .call-to-action h2 {
+    font-size: 30px;
+  }
+  .call-to-action h4 {
+    font-size: 18px;
+  }
+  .call-to-action .border-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .about-main-content .content {
+    padding: 60px 30px;
+  }
+  .weekly-offers .container-fluid {
+    padding: 0 30px;
+  }
+  .more-about .left-image {
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .search-form #search-form {
+    padding: 20px 30px;
+  }
+  .amazing-deals .item {
+    padding: 20px;
+  }
+  .reservation-form #reservation-form {
+    padding: 30px 20px;
+  }
+}
+
 #section-1 .content-slider .slider #top-banner-1 {
   background: url('../images/konten1.jpeg') no-repeat center center;
   background-size: cover;
@@ -916,7 +1183,11 @@ Visit Country Style
 */
 
 .visit-country {
-  margin-top: 80px;
+  margin-top: 180px;
+}
+
+.visit-country-1 {
+  margin-top: 90px;
 }
 
 .visit-country .side-bar-map {
@@ -1205,7 +1476,6 @@ About Page Style
   min-height: 100%;
   max-height: 100%;
   position: relative;
-  margin-top: -70px;
   background-color: #fff;
   border-radius: 23px;
   padding: 60px;
@@ -1273,9 +1543,8 @@ About Page Style
 }
 
 .weekly-offers {
-  padding-bottom: 120px;
-  margin-top: 120px;
-  border-bottom: 1px solid #eee;
+  padding-bottom: 0px;
+  margin-top: 30px;
 }
 
 .weekly-offers .container-fluid {
@@ -1285,15 +1554,16 @@ About Page Style
 .weekly-offers .item {
   margin: 0px 15px;
   position: relative;
-  min-height: 420px;
+  min-height: 500px;
 }
 
 .weekly-offers .item .thumb img {
-  padding-right: 160px;
+  padding: 10px 10px 10px 10px;
   border-radius: 23px;
 }
 
 .weekly-offers .item .thumb .text {
+  margin-top: 120px;
   position: absolute;
   background-color: #fff;
   border-radius: 23px;
@@ -1341,7 +1611,7 @@ About Page Style
 }
 
 .weekly-offers .item .thumb .text .main-button {
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 .weekly-offers .item .thumb .text .main-button a:hover {
@@ -1353,7 +1623,7 @@ About Page Style
 
 .weekly-offers .owl-nav {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .weekly-offers .owl-nav .owl-next span {
@@ -1914,7 +2184,7 @@ Deals Page Style
 }
 
 .amazing-deals {
-  margin-top: 120px;
+  margin-top: 180px;
 }
 
 .amazing-deals .item .image {
@@ -2013,7 +2283,7 @@ Reservation Page Style
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 260px 0px 190px 0px;
+  padding: 260px 0px 200px 0px;
   text-align: center;
   animation: changeBackground 15s infinite;
 }
@@ -2087,7 +2357,7 @@ Reservation Page Style
   border-radius: 23px;
   box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
   text-align: center;
-  padding: 30px;
+  padding: 40px;
 }
 
 .more-info .info-item i {

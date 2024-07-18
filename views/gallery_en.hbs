@@ -3,46 +3,23 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading text-center">
-          <h2>Galeri</h2>
-          <p>Deskripsi galeri mu disini</p>
+          <h2>GALLERY</h2>
         </div>
       </div>
-        <div class="row">
-          <!-- Item 1 -->
-          <div class="col-md-4">
-            <div class="gallery-item">
-              <img src="./assets/images/konten1.jpeg" alt="" class="gallery-image">
-              <div class="overlay"></div>
-              <div class="text">
-                <h4>Gallery Image 1</h4>
-                <p>Description of image 1</p>
-              </div>
+      <div class="row">
+        {{#each gallery}}
+        <!-- Item 1 -->
+        <div class="col-md-4">
+          <div class="gallery-item" style="margin-bottom: 20px;">
+            <img src="./assets/images/{{this.dataValues.image}}" alt="" class="gallery-image">
+            <div class="overlay"></div>
+            <div class="text">
+              <h4>{{this.dataValues.title}}</h4>
+              <p>{{this.dataValues.descriptionid}}</p>
             </div>
           </div>
-          <!-- Item 2 -->
-          <div class="col-md-4">
-            <div class="gallery-item">
-              <img src="./assets/images/konten3.jpeg" alt="" class="gallery-image">
-              <div class="overlay"></div>
-              <div class="text">
-                <h4>Gallery Image 2</h4>
-                <p>Description of image 2</p>
-              </div>
-            </div>
-          </div>
-          <!-- Item 3 -->
-          <div class="col-md-4">
-            <div class="gallery-item">
-              <img src="./assets/images/konten1.jpeg" alt="" class="gallery-image">
-              <div class="overlay"></div>
-              <div class="text">
-                <h4>Gallery Image 3</h4>
-                <p>Description of image 3</p>
-              </div>
-            </div>
-          </div>
-          <!-- Anda dapat menambahkan item-item berikutnya di sini -->
         </div>
+        {{/each}}
       </div>
     </div>
   </div>

@@ -3,8 +3,7 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
         <div class="section-heading text-center">
-          <h2>{{title}}</h2>
-          <p>Deskripsi Toko mu disini</p>
+          <h2>KOLEKSI</h2>
         </div>
       </div>
       {{#each shops}}
@@ -19,17 +18,19 @@
             </div>
             <div class="col-lg-6 align-self-center">
               <div class="content">
-                <h4>{{this.dataValues.name}}</h4>
+                <h4 style="color: black;">{{this.dataValues.name}}</h4>
                 <div class="row">
                   <div class="col-6">
-                    <i class="bi bi-cash">Rp. {{this.dataValues.price}}</i>
+                    <i class="bi bi-cash">Rp. {{this.dataValues.formattedPrice}}</i>
                   </div>
                   <div class="col-6">
                   </div>
                 </div>
                 <p>{{this.dataValues.description}}</p>
-                <div class="main-button">
-                  <a href="{{this.dataValues.link1}}">Order Sekarang</a>
+                <div class="main-buttonn">
+                  <a href="{{this.dataValues.link1}}"><img src="assets/images/tokopedia.png" class="tokopedia" alt=""></a>
+                  <a href="{{this.dataValues.link2}}"><img src="assets/images/shopee.png" class="shopee" alt=""></a>
+                  <a href="https://wa.me/6281515530666"><img src="assets/images/whatsapp.png" class="whatsapp" alt=""></a>
                 </div>
               </div>
             </div>

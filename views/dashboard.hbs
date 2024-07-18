@@ -1,422 +1,114 @@
-<div class="container mt-5">
-    <div class="text-center">
-        <h1>{{title}}</h1>
-    </div>
-    <!-- Button trigger modal -->
-    <div class="mb-3">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenterProduk">
-            Add
-        </button>
-    </div>
+        <div class="main">
+            <div class="topbar">
+                <div class="toggle">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </div>
 
-    <!-- Modal Item -->
-    <div class="modal fade" id="exampleModalCenterProduk" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Tambah</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <div class="search">
+                    <label>
+                        <input type="text" placeholder="Search here">
+                        <ion-icon name="search-outline"></ion-icon>
+                    </label>
                 </div>
-                <ul class="nav nav-tabs" id="myTabProduk" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#homeProduk" type="button" role="tab" aria-controls="home" aria-selected="true">Konten</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profileProduk" type="button" role="tab" aria-controls="profile" aria-selected="false">Item</button>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContentProduk">
-                    <div class="tab-pane fade show active" id="homeProduk" role="tabpanel" aria-labelledby="home-tab">
-                        <div class="modal-body">
-                            <form method="post" action="/create-event" enctype="multipart/form-data">
-                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                <div class="form-group">
-                                    <label for="title">Judul Id</label>
-                                    <input type="text" class="form-control" id="title" name="title">
-                                </div>
-                                 <div class="form-group">
-                                    <label for="titleen">Judul en</label>
-                                    <input type="text" class="form-control" id="titleen" name="titleen">
-                                </div>
-                                <div class="form-group">
-                                    <label for="descriptionid">Deskripsi Id</label>
-                                    <textarea class="form-control" id="descriptionid" name="descriptionid" rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="descriptionen">Deskripsi En</label>
-                                    <textarea class="form-control" id="descriptionen" name="descriptionen" rows="3"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Masukan gambar</label>
-                                    <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="profileProduk" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="modal-body">
-                             <form method="post" action="/create-shop" enctype="multipart/form-data">
-                             <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                <div class="form-group">
-                                    <label for="name">Nama</label>
-                                    <input type="text" class="form-control" id="name" name="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="description">Deskripsi Id</label>
-                                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="deskripsiitemen">Deskripsi En</label>
-                                    <textarea class="form-control" id="descriptionen" name="descriptionen" rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">Harga</label>
-                                    <input type="text" class="form-control" id="price" name="price">
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">Link Tokopedia</label>
-                                    <input type="text" class="form-control" id="link1" name="link1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="price">Link Shopee</label>
-                                    <input type="text" class="form-control" id="link2" name="link2">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="image" class="form-label">Masukan gambar</label>
-                                    <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                <div class="user">
+                    <img src="assets/imgs/customer01.jpg" alt="">
                 </div>
             </div>
-        </div>
-    </div>
-    <h1>Item ID</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Gambar</th>
-                <th scope="col">Nama Produk</th>
-                <th scope="col">Deskripsi ID</th>
-                <th scope="col">Harga</th>
-                <th scope="col">Link Tokopedia</th>
-                <th scope="col">Link Shopee</th>
-                <th scope="col">Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each shops}}
-            <tr>
-                <td>
-                    <a href="#"><img src="assets/images/{{this.dataValues.image}}" width="100" height="100"></a>
-                </td>
-                <td>{{this.dataValues.name}}</td>
-                <td>{{this.dataValues.description}}</td>
-                <td>{{this.dataValues.price}}</td>
-                <td>{{this.dataValues.link1}}</td>
-                <td>{{this.dataValues.link2}}</td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalItem-{{this.dataValues.id}}">
-                        Edit
-                    </button>
-                    <!-- Modal Item -->
-                    <div class="modal fade" id="exampleModalItem-{{this.dataValues.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelItem-{{this.dataValues.id}}" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabelItem-{{this.dataValues.id}}">Edit Item</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="/update-item" method="POST" enctype="multipart/form-data">
-                                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                        <input type="hidden" name="id" value="{{this.dataValues.id}}">
-                                        <div class="form-group">
-                                            <label for="name">Nama Produk</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{this.dataValues.name}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="description">Deskripsi ID</label>
-                                            <textarea class="form-control" id="description" name="description" rows="3">{{this.dataValues.description}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Harga</label>
-                                            <input type="text" class="form-control" id="price" name="price" value="{{this.dataValues.price}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Link Tokopedia</label>
-                                            <input type="text" class="form-control" id="link1" name="link1">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Link Shopee</label>
-                                            <input type="text" class="form-control" id="link2" name="link2">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="image" class="form-label">Upload Gambar</label>
-                                            <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
+
+            <!-- ======================= Cards ================== -->
+            <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{gallerys.length}}</div>
+                        <div class="cardName">Photo</div>
                     </div>
-                </td>
-                <td>
-                    <form action="/delete-item{{this.dataValues.id}}" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
 
-    <h1>Item EN</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description EN</th>
-                <th scope="col">Price</th>
-                <th scope="col">Edit</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each shops}}
-            <tr>
-                <td>
-                    <a href="#"><img src="assets/images/{{this.dataValues.image}}" width="100" height="100"></a>
-                </td>
-                <td>{{this.dataValues.name}}</td>
-                <td>{{this.dataValues.descriptionen}}</td>
-                <td>{{this.dataValues.price}}</td>
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalItemen-{{this.dataValues.id}}">
-                        Edit
-                    </button>
-                    <!-- Modal Item EN -->
-                    <div class="modal fade" id="exampleModalItemen-{{this.dataValues.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelItemen-{{this.dataValues.id}}" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabelItemen-{{this.dataValues.id}}">Edit Item</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="/update-item" method="POST" enctype="multipart/form-data">
-                                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                        <input type="hidden" name="id" value="{{this.dataValues.id}}">
-                                        <div class="form-group">
-                                            <label for="name">Name</label>
-                                            <input type="text" class="form-control" id="name" name="name" value="{{this.dataValues.name}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="descriptionen">Description EN</label>
-                                            <textarea class="form-control" id="descriptionen" name="descriptionen" rows="3">{{this.dataValues.descriptionen}}</textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Price</label>
-                                            <input type="text" class="form-control" id="price" name="price" value="{{this.dataValues.price}}">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Harga</label>
-                                            <input type="text" class="form-control" id="price" name="price">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Link Tokopedia</label>
-                                            <input type="text" class="form-control" id="link1" name="link1">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="price">Link Shopee</label>
-                                            <input type="text" class="form-control" id="link2" name="link2">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="image" class="form-label">Upload Image</label>
-                                            <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Save</button>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="iconBx">
+                        <ion-icon name="eye-outline"></ion-icon>
                     </div>
-                </td>
-                <td>
-                    <form action="/delete-item{{this.dataValues.id}}" method="POST" enctype="multipart/form-data">
-                        <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                        <input type="hidden" name="id" value="">
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+                </div>
 
-    <div>
-        <h1>Konten Id</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Gambar</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Deskripsi</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each events}}
-                <tr>
-                    <td>
-                        <a href="#"><img src="assets/images/{{this.dataValues.image}}" width="100" height="100"></a>
-                    </td>
-                    <td>{{this.dataValues.title}}</td>
-                    <td>{{this.dataValues.descriptionid}}</td>
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalKontenId{{this.dataValues.id}}">
-                            Edit
-                        </button>
-                        <!-- Modal Konten -->
-                        <div class="modal fade" id="exampleModalKontenId{{this.dataValues.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelKontenId{{this.dataValues.id}}" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabelKontenId{{this.dataValues.id}}">Edit Konten</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="/update-event" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                            <input type="hidden" name="id" value="{{this.dataValues.id}}">
-                                            <div class="form-group">
-                                                <label for="title">Judul</label>
-                                                <input type="text" class="form-control" id="title" name="title" value="{{this.dataValues.title}}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="descriptionid">Deskripsi</label>
-                                                <textarea class="form-control" id="descriptionid" name="descriptionid" rows="3">{{this.dataValues.descriptionid}}</textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="image">Upload Gambar</label>
-                                                <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <form action="/delete-event/{{this.dataValues.id}}" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{shops.length}}</div>
+                        <div class="cardName">Product</div>
+                    </div>
 
-        <h1>Konten En</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Image</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{#each events}}
-                <tr>
-                    <td>
-                        <a href="#"><img src="assets/images/{{this.dataValues.image}}" width="100" height="100"></a>
-                    </td>
-                    <td>{{this.dataValues.titleen}}</td>
-                    <td>{{this.dataValues.descriptionen}}</td>
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalKontenen{{this.dataValues.id}}">
-                            Edit
-                        </button>
-                        <!-- Modal Konten -->
-                        <div class="modal fade" id="exampleModalKontenen{{this.dataValues.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelKontenen{{this.dataValues.id}}" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabelKontenen{{this.dataValues.id}}">Edit Event</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="/update-event" method="POST" enctype="multipart/form-data">
-                                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                                            <input type="hidden" name="id" value="{{this.dataValues.id}}">
-                                            <div class="form-group">
-                                                <label for="titleen">Title</label>
-                                                <input type="text" class="form-control" id="titleen" name="titleen" value="{{this.dataValues.titleen}}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="descriptionen">Description</label>
-                                                <textarea class="form-control" id="descriptionen" name="descriptionen" rows="3">{{this.dataValues.descriptionen}}</textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="image">Upload Image</label>
-                                                <input class="form-control" type="file" id="image" name="image" accept="image/*">
-                                            </div>
-                                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <form action="/delete-event/{{this.dataValues.id}}" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                {{/each}}
-            </tbody>
-        </table>
-    </div>
-</div>
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
+                </div>
 
+                <div class="card">
+                    <div>
+                        <div class="numbers">{{events.length}}</div>
+                        <div class="cardName">Events</div>
+                    </div>
 
+                    <div class="iconBx">
+                        <ion-icon name="chatbubbles-outline"></ion-icon>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="numbers">1</div>
+                        <div class="cardName">Sites</div>
+                    </div>
+
+                    <div class="iconBx">
+                        <ion-icon name="planet-outline"></ion-icon>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================ Order Details List ================= -->
+            <div class="details">
+                <div class="recentOrders">
+                    <div class="cardHeader">
+                        <h2>Product</h2>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Name</td>
+                                <td>Description</td>
+                                <td>Price</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                        {{#each shops}}
+                        <tbody>
+                            <tr>
+                                <td>{{this.dataValues.name}}</td>
+                                <td>{{this.dataValues.description}}</td>
+                                <td>{{this.dataValues.price}}</td>
+                                <td><span class="status delivered">OK</span></td>
+                            </tr>
+                        </tbody>
+                        {{/each}}
+                    </table>
+                </div>
+
+                <!-- ================= New Customers ================ -->
+                <div class="recentCustomers">
+                    <div class="cardHeader">
+                        <h2>Events</h2>
+                    </div>
+                    <table>
+                        {{#each events}}
+                        <tr>
+                            <td width="60px">
+                                <div class="imgBx"><img src="/public/assets/images/{{this.dataValues.image}}" alt=""></div>
+                            </td>
+                            <td>
+                                <h4>{{this.dataValues.title}}</h4>
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </table>
+                </div>
+            </div>
+        </div>  

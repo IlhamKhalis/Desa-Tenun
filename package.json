@@ -8,9 +8,11 @@
     "start": "nodemon index.js",
     "postinstall": "cp .env-example .env"
   },
-  "author": "Mangesh Ghadigaonkar",
+  "author": "Pro Team",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.6.0",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
@@ -28,6 +30,7 @@
     "multer": "^1.4.5-lts.1",
     "mysql2": "^2.1.0",
     "sequelize": "^6.3.4",
-    "validator": "^13.1.1"
+    "validator": "^13.1.1",
+    "winston": "^3.13.0"
   }
 }
